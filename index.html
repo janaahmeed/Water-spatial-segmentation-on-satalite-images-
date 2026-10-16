@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Upload a multiband GeoTIFF to create a satellite water segmentation mask."
+    />
+    <title>Satellite Water Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">Satellite imagery analysis</p>
+        <h1>Water segmentation</h1>
+        <p class="intro">
+          Upload a multiband GeoTIFF and the model will identify predicted water
+          areas and create a downloadable binary mask.
+        </p>
+      </header>
+
+      <section class="panel upload-panel" aria-labelledby="upload-heading">
+        <h2 id="upload-heading">Analyze a GeoTIFF</h2>
+        <p class="panel-description">
+          Select a raster file to generate an RGB composite, water mask, and
+          overlay.
+        </p>
+
+        <form
+          id="upload-form"
+          action="/predict"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label for="file">GeoTIFF file</label>
+          <input
+            id="file"
+            name="file"
+            type="file"
+            accept=".tif,.tiff,image/tiff"
+            required
+          />
+          <button id="submit-button" type="submit">Run segmentation</button>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite">
+          Ready for an image.
+        </p>
+        <p id="error" class="error" role="alert" hidden></p>
+      </section>
+
+      <section id="result-section" class="panel results-panel" hidden>
+        <h2>Segmentation results</h2>
+        <p id="summary" class="panel-description"></p>
+
+        <div class="results-grid">
+          <article class="result-card">
+            <h3>Satellite RGB composite</h3>
+            <p>Display image generated from selected bands.</p>
+            <img id="original-preview" alt="Satellite RGB composite" />
+          </article>
+
+          <article class="result-card">
+            <h3>Binary water mask</h3>
+            <p>White = predicted water; black = non-water.</p>
+            <img id="mask-preview" alt="Predicted water mask" />
+          </article>
+
+          <article class="result-card">
+            <h3>Water overlay</h3>
+            <p>Cyan highlights predicted water on the composite.</p>
+            <img id="overlay-preview" alt="Water segmentation overlay" />
+          </article>
+        </div>
+
+        <a id="download-mask" download="water_mask.png">Download binary mask</a>
+      </section>
+    </main>
+  </body>
+</html>

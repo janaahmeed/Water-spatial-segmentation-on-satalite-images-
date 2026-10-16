@@ -1,0 +1,127 @@
+2026-10-15 16:22:34,274 | INFO | Logger test successful
+2026-10-15 22:14:30,785 | WARNING | request_id=6df225a7af91 | event=validation_failed | filename='5.tif' | duration_seconds=0.020 | error="Invalid raster file: name 'rasterio' is not defined"
+2026-10-15 22:14:45,058 | WARNING | request_id=ffb79e28240b | event=validation_failed | filename='32.tif' | duration_seconds=0.021 | error="Invalid raster file: name 'rasterio' is not defined"
+2026-10-15 22:20:41,319 | WARNING | request_id=b3685d556a58 | event=validation_failed | filename='32.tif' | duration_seconds=0.006 | error="Invalid raster file: name 'rasterio' is not defined"
+2026-10-15 22:33:26,727 | WARNING | request_id=026f34cb4e3b | event=validation_failed | filename='5.tif' | duration_seconds=0.021 | error="The uploaded file '5.tif' contains 12 bands; this model requires 11."
+2026-10-15 22:37:55,503 | ERROR | request_id=f446d87094b4 | event=predict_failed | filename='5.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 117, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 77, in predict
+    patches, h, w, h_pad, w_pad = create_patches(normalized)
+TypeError: create_patches() missing 1 required positional argument: 'n_images'
+2026-10-15 22:43:48,468 | ERROR | request_id=ed91a8afed2a | event=predict_failed | filename='5.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 117, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 77, in predict
+    patches, h, w, h_pad, w_pad = create_patches(normalized,)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 50, in create_patches
+    feats = df[FEATURE_COLS].to_numpy(np.float32).reshape( img_size, img_size, C)
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+2026-10-15 22:44:07,630 | ERROR | request_id=d06293a84805 | event=predict_failed | filename='34.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 117, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 77, in predict
+    patches, h, w, h_pad, w_pad = create_patches(normalized,)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 50, in create_patches
+    feats = df[FEATURE_COLS].to_numpy(np.float32).reshape( img_size, img_size, C)
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+2026-10-15 22:52:36,197 | INFO | request_id=30742fd7384e | event=predict_success | filename='32.tif' | width=128 | height=128 | bands=11 | water_pixels=111 | water_pct=0.68 | duration_seconds=0.469 | saved=true
+2026-10-15 22:52:36,198 | ERROR | request_id=30742fd7384e | event=predict_failed | filename='32.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 174, in predict
+    "original_rgb": png_data_url(rgb),
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 196, in png_data_url
+    img = Image.fromarray(arr)
+NameError: name 'Image' is not defined
+2026-10-16 11:17:50,558 | ERROR | request_id=0bf6361408ae | event=predict_failed | filename='32.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 117, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 76, in predict
+    patches, _, _ = create_inference_patches(normalized)
+NameError: name 'create_inference_patches' is not defined
+2026-10-16 11:38:54,670 | INFO | request_id=dba6b724a7e0 | event=predict_success | filename='32.tif' | width=128 | height=128 | bands=11 | water_pixels=111 | water_pct=0.68 | duration_seconds=0.464 | saved=true
+2026-10-16 11:41:56,028 | INFO | request_id=ec64a4d2e8f2 | event=predict_success | filename='5.tif' | width=128 | height=128 | bands=11 | water_pixels=0 | water_pct=0.00 | duration_seconds=0.425 | saved=true
+2026-10-16 11:42:04,578 | INFO | request_id=80e4b5305b07 | event=predict_success | filename='5.tif' | width=128 | height=128 | bands=11 | water_pixels=0 | water_pct=0.00 | duration_seconds=0.457 | saved=true
+2026-10-16 11:42:12,326 | INFO | request_id=e9e4cec13ba7 | event=predict_success | filename='32.tif' | width=128 | height=128 | bands=11 | water_pixels=111 | water_pct=0.68 | duration_seconds=0.485 | saved=true
+2026-10-16 11:42:27,914 | INFO | request_id=69e235a90833 | event=predict_success | filename='42.tif' | width=128 | height=128 | bands=11 | water_pixels=3289 | water_pct=20.07 | duration_seconds=0.398 | saved=true
+2026-10-16 11:42:50,268 | INFO | request_id=51e8801b41d3 | event=predict_success | filename='42.tif' | width=128 | height=128 | bands=11 | water_pixels=3289 | water_pct=20.07 | duration_seconds=0.363 | saved=true
+2026-10-16 11:43:00,288 | INFO | request_id=79c5cdc4c766 | event=predict_success | filename='17.tif' | width=128 | height=128 | bands=11 | water_pixels=3205 | water_pct=19.56 | duration_seconds=0.420 | saved=true
+2026-10-16 11:48:48,571 | INFO | request_id=ae26abc63deb | event=predict_success | filename='198.tif' | width=128 | height=128 | bands=11 | water_pixels=55 | water_pct=0.34 | duration_seconds=0.298 | saved=true
+2026-10-16 11:49:14,979 | INFO | request_id=466f8b3811d1 | event=predict_success | filename='102.tif' | width=128 | height=128 | bands=11 | water_pixels=3327 | water_pct=20.31 | duration_seconds=0.269 | saved=true
+2026-10-16 12:22:13,103 | ERROR | request_id=d472e44a9564 | event=predict_failed | filename='149.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 118, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 72, in predict
+    normalized = normalize_bands(image, self.band_minN, self.band_maxN)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 41, in normalize_bands
+    band_range = np.maximum(band_max - band_min, 1e-6)
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2026-10-16 12:24:20,192 | ERROR | request_id=51c780999644 | event=predict_failed | filename='149.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 118, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 72, in predict
+    normalized = normalize_bands(image, self.band_minN, self.band_maxN)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 41, in normalize_bands
+    band_range = np.maximum(band_maxN - band_minN, 1e-6)
+NameError: name 'band_maxN' is not defined. Did you mean: 'band_max'?
+2026-10-16 12:26:46,756 | ERROR | request_id=64688bd74aca | event=predict_failed | filename='149.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 118, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 72, in predict
+    normalized = normalize_bands(image, self.band_minN, self.band_maxN)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 41, in normalize_bands
+    band_range = np.maximum(band_maxN - band_minN, 1e-6)
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2026-10-16 12:38:47,880 | WARNING | request_id=c1f9a8b22f9e | event=validation_failed | filename='149.tif' | duration_seconds=0.036 | error='Input image must have shape (height, width, channels).'
+2026-10-16 12:40:50,645 | ERROR | request_id=7a72c40e0015 | event=predict_failed | filename='149.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 118, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 72, in predict
+    normalized = normalize_bands(image, self.band_minN, self.band_maxN)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 41, in normalize_bands
+    band_range = np.maximum(band_max - band_min, 1e-6)
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2026-10-16 14:31:06,785 | ERROR | request_id=d28dc471cd13 | event=predict_failed | filename='149.tif'
+Traceback (most recent call last):
+  File "D:\cellula internship\water-segmentation-app\app.py", line 118, in predict
+    mask = service.predict(image)
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python310\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\cellula internship\water-segmentation-app\model_service.py", line 73, in predict
+    normalized = normalize_bands(image, self.band_min, self.band_max)
+  File "D:\cellula internship\water-segmentation-app\preprocessing.py", line 41, in normalize_bands
+    band_range = np.maximum(band_max - band_min, 1e-6)
+TypeError: unsupported operand type(s) for -: 'list' and 'list'
+2026-10-16 14:39:43,576 | WARNING | request_id=6c9aebda68c6 | event=validation_failed | filename='198.tif' | duration_seconds=0.041 | error='Input image must have shape (height, width, channels).'
+2026-10-16 14:50:54,031 | INFO | request_id=c21c095d6f20 | event=predict_success | filename='198.tif' | width=128 | height=128 | bands=11 | water_pixels=59 | water_pct=0.36 | duration_seconds=0.396 | saved=true
+2026-10-16 14:51:09,361 | INFO | request_id=512927c94133 | event=predict_success | filename='99.tif' | width=128 | height=128 | bands=11 | water_pixels=320 | water_pct=1.95 | duration_seconds=0.290 | saved=true
+2026-10-16 14:51:29,957 | INFO | request_id=301b665c9afe | event=predict_success | filename='102.tif' | width=128 | height=128 | bands=11 | water_pixels=3316 | water_pct=20.24 | duration_seconds=0.289 | saved=true
+2026-10-16 14:51:42,686 | INFO | request_id=dc12ab59431a | event=predict_success | filename='125.tif' | width=128 | height=128 | bands=11 | water_pixels=2509 | water_pct=15.31 | duration_seconds=0.267 | saved=true
+2026-10-16 14:52:01,110 | INFO | request_id=5adc1bf6d49b | event=predict_success | filename='149.tif' | width=128 | height=128 | bands=11 | water_pixels=3787 | water_pct=23.11 | duration_seconds=0.300 | saved=true
+2026-10-16 15:46:31,533 | INFO | request_id=240c72f6bb43 | event=predict_success | filename='99.tif' | width=128 | height=128 | bands=11 | water_pixels=320 | water_pct=1.95 | duration_seconds=0.315 | saved=true
+2026-10-16 15:47:18,115 | INFO | request_id=292aa1c1088e | event=predict_success | filename='42.tif' | width=128 | height=128 | bands=11 | water_pixels=3305 | water_pct=20.17 | duration_seconds=0.409 | saved=true
+2026-10-16 15:47:36,682 | INFO | request_id=995fae8eb40e | event=predict_success | filename='102.tif' | width=128 | height=128 | bands=11 | water_pixels=3316 | water_pct=20.24 | duration_seconds=0.426 | saved=true

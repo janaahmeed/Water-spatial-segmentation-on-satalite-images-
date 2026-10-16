@@ -1,0 +1,8 @@
+
+Flask
+numpy
+torch
+segmentation-models-pytorch
+rasterio
+Pillow
+pytest
